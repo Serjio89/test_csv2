@@ -20,5 +20,14 @@ export default function solution(content){
   const sortedDebutes = _.uniq(debuts)
   console.log(sortedDebutes);
   
+  const ratingsWhite = data.map(el=>el[7])
+  const ratingsBlack = data.map(el=>el[9])
+
+  const victoryStatus = data.map(el=>el[4])
+  const whiteWinsCount = victoryStatus.filter(el=>el==='White').length 
+  const blackWinsCount = victoryStatus.filter(el=>el==='Black').length
+  const drawCount = victoryStatus.filter(el=>el==='Draw').length
+
+  console.log(`Соотношение побед белых к черным и к ничьим: ${Math.round((whiteWinsCount / gamesCount) * 100)}% к ${Math.round((blackWinsCount / gamesCount) * 100)}% к ${Math.round((drawCount / gamesCount) * 100)}%`);
   // END
 }
